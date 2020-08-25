@@ -5,7 +5,7 @@ import s from './UserBar.module.css';
 
 const UserBar = () => {
     return (
-        <div className={s.sideBar}>
+        <div className={s.userBar}>
             <UserInfo /> 
         </div>
     )

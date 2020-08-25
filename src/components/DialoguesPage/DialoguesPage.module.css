@@ -1,0 +1,55 @@
+/* для левого сайд бара */
+
+.sideBar {
+    max-width: 400px;
+    flex-grow: 1;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+    .sideBar {
+        max-width: 600px;
+        min-width: 370px;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+}
+
+/* для блока диалогов */
+
+.dialogues {
+    padding: 20px 0;
+    background-color: var(--main-color);
+    border-radius: 8px;
+    min-height: 50vh;
+    max-height: 100vh;
+}
+
+/* для диалогов */
+
+.dialogue {
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+}
+
+.active {
+    background-color: #b2ba79;
+}
+
+.userPhoto {
+    width: 60px;
+    height: 60px;
+    background: url(./user-photo.jpg) no-repeat center center / cover;
+    border: 2px solid white;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.userName {
+    flex-grow: 1;
+    font-size: 24px;
+    color: var(--txt-3);
+    text-shadow: 1px 1px 2px black;
+}
