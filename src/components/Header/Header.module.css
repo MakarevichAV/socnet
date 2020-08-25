@@ -1,0 +1,29 @@
+.header {
+    min-height: 110px;
+    background: var(--main-color);
+    border-bottom: 5px solid var(--color-1);
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: inherit;
+    position: relative;
+}
+
+.logo {
+    display: inline-block;
+    height: 76px;
+    width: 270px;
+    background: url(../../logo.svg) no-repeat center left / contain;
+}
+
+@media (max-width: 1130px) {
+    .logo {
+        height: 70px;
+        width: 240px;
+    }   
+}
