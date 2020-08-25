@@ -13,7 +13,7 @@ const InfoItem = (props) => {
         {[s.blue]: props.blue}
     );
 
-    const type = props.type ? props.type : 'number';
+    // const type = props.type ? props.type : 'number';
 
     return (
         <p className={styles}>
