@@ -53,14 +53,14 @@
     background-color: #e6e6e6;
 }
 
-.active {
+.active .dialogue {
     background-color: var(--color-1);
     cursor: default;
     color: white;
 }
-.active:hover {
+/* .active .dialogue:hover {
     background-color: var(--color-1);
-}
+} */
 
 .userPhoto {
     width: 60px;
