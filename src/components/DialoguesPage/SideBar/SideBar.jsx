@@ -3,17 +3,24 @@ import s from './SideBar.module.css';
 import Dialogue from './Dialogue/Dialogue';
 
 const SideBar = () => {
+
+    const dialoguesData = [
+        { id: 1, name: 'Ксения' },
+        { id: 2, name: 'Игорь' },
+        { id: 3, name: 'Марина' },
+        { id: 4, name: 'Галина' },
+        { id: 5, name: 'Твикс' },
+    ];
+
+    const dialogues = dialoguesData.map((item) => {
+        return (
+            <Dialogue name={item.name} id={item.id} />
+        )
+    })
+
     return (
         <div className={s.sideBar}>
-            <Dialogue name="Ксения" id="1" />
-            <Dialogue name="Игорь" id="2" />
-            <Dialogue name="Марина" id="3" />
-            <Dialogue name="Галина" id="4" />
-            <Dialogue name="Твикс" id="5" />
-            <Dialogue name="Твикс" id="5" />
-            <Dialogue name="Твикс" id="5" />
-            <Dialogue name="Твикс" id="5" />
-            <Dialogue name="Твикс" id="5" />
+            {dialogues}
         </div>
     )
 }

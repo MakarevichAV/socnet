@@ -2,10 +2,10 @@ import React from 'react';
 import PostInfo from './PostInfo/PostInfo';
 import PostTxt from './PostTxt/PostTxt';
 
-const Post = ({msg}) => {
+const Post = ({ msg, name, date }) => {
     return (
         <>
-            <PostInfo />
+            <PostInfo name={name} date={date} />
             <PostTxt msg={msg} />
         </>
     )
