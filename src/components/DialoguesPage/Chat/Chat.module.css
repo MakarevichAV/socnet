@@ -1,0 +1,9 @@
+.chat {
+    flex-grow: 1;
+    flex-basis: 450px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-right: 3px solid var(--bg-color);
+    border-left: 3px solid var(--bg-color);
+}

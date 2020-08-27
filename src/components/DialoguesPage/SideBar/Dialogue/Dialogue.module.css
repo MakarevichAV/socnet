@@ -1,0 +1,35 @@
+.dialogue {
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    cursor: pointer;
+}
+.dialogue:hover {
+    background-color: #e6e6e6;
+}
+
+.active .dialogue {
+    background-color: var(--color-1);
+    cursor: default;
+    color: white;
+}
+
+.userPhoto {
+    width: 60px;
+    height: 60px;
+    background: url(./user-photo.jpg) no-repeat center center / cover;
+    border: 2px solid white;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.userName {
+    flex-grow: 1;
+    font-size: 24px;
+    color: #6e6e6e;
+    /* text-shadow: 1px 1px 2px black; */
+}
+
+.active .userName {
+    color: white;
+}

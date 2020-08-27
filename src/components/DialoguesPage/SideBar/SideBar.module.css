@@ -1,0 +1,30 @@
+.sideBar {
+    max-width: 400px;
+    flex-grow: 1;
+    border-radius: 8px;
+    box-sizing: border-box;
+    height: 100%;
+    background: var(--block);
+    border-right: 3px solid var(--bg-color);
+    border-left: 3px solid var(--bg-color);
+    padding: 15px 0;
+    overflow: auto;
+}
+
+@media (max-width: 900px) {
+    .sideBar {
+        max-width: 600px;
+        min-width: 370px;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+}
+
+.sideBar::-webkit-scrollbar { 
+    width: 5px;
+}
+
+.sideBar::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 2px;
+}

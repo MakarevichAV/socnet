@@ -1,0 +1,29 @@
+.msgArea {
+    background: linear-gradient(-45deg, #85ad90, #ecebeb);
+    padding-bottom: 0;
+    box-sizing: border-box;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    max-height: 100%;
+    overflow: hidden;
+    border: 2px solid #f7f7f7;
+    border-top: 55px solid #f7f7f7;
+    border-radius: 8px 8px 0 0;
+}
+.feed {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    overflow: auto;
+    padding: 0 30px;
+}
+.feed::-webkit-scrollbar { 
+    width: 5px;
+}
+
+.feed::-webkit-scrollbar-thumb {
+    background: hsla(191, 48%, 35%, 0.5);
+    border-radius: 2px;
+}

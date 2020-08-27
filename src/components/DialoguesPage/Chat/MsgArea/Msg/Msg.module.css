@@ -1,0 +1,19 @@
+.msg {
+    max-width: 50%;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    color: #353535;
+    font-size: 18px;
+    box-shadow: 1px 1px 3px 0px #d9d9d9;
+}
+
+.sended {
+    place-self: flex-end;
+    background-color: #EFFCDE;
+}
+
+.received {
+    place-self: flex-start;
+    background-color: #ffffff;
+}
