@@ -5,13 +5,13 @@ import ProfilePage from './components/ProfilePage/ProfilePage';
 import DialoguesPage from './components/DialoguesPage/DialoguesPage';
 import { Route, BrowserRouter } from 'react-router-dom';
 
-const App = () => {
+const App = ({ state }) => {
     return (
         <BrowserRouter>
             <div className="App">
                 <Header />
-                <Route path="/profile" component={ProfilePage} />
-                <Route path="/dialogues" component={DialoguesPage} />
+                <Route path="/profile" render={() => <ProfilePage state={state.profilePage} />} />
+                <Route path="/dialogues" render={() => <DialoguesPage state={state.dialoguesPage} />} />
             </div>
         </BrowserRouter>
     );
