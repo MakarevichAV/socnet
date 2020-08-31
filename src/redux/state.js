@@ -1,3 +1,6 @@
+const ADD_POST = 'ADD_POST';
+const CHANGE_NEW_POST_VAL = 'CHANGE_NEW_POST_VAL';
+
 let store = {
     _state: {
         profilePage: {
@@ -85,7 +88,7 @@ let store = {
         this._callSubscriber = observer;
     },
     dispatch(action) {
-        if (action.type === 'ADD_POST') {
+        if (action.type === ADD_POST) {
             const newPost = {
                 id: 5,
                 msg: this._state.profilePage.newPostVal,
@@ -96,10 +99,23 @@ let store = {
             this._state.profilePage.posts.push(newPost);
             this._state.profilePage.newPostVal = '';
             this._callSubscriber(this._state);
-        } else if (action.type === 'CHANGE_NEW_POST_VAL') {
+        } else if (action.type === CHANGE_NEW_POST_VAL) {
             this._state.profilePage.newPostVal = action.newVal;
             this._callSubscriber(this._state);
         }
+    }
+}
+
+export const addPostAC = () => {
+    return {
+        type: ADD_POST
+    }
+}
+
+export const changeNewPostVal = (newVal) => {
+    return {
+        type: CHANGE_NEW_POST_VAL, 
+        newVal: newVal
     }
 }
 
