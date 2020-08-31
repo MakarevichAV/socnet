@@ -1,3 +1,5 @@
+let rerenderAll;
+
 let state = {
     profilePage: {
         posts: [
@@ -29,7 +31,8 @@ let state = {
                 date: '25 августа в 13:42',
                 likesCount: 17
             }
-        ]
+        ],
+        newPostVal: ''
     },
     dialoguesPage: {
         dialogues: [
@@ -73,5 +76,27 @@ let state = {
         ]
     }
 };
+
+export const addPost = () => {
+    const newPost = {
+        id: 5,
+        msg: state.profilePage.newPostVal,
+        name: 'Макар',
+        date: '28 августа в 14:55',
+        likesCount: 0
+    };
+    state.profilePage.posts.push(newPost);
+    state.profilePage.newPostVal = '';
+    rerenderAll(state);
+}
+
+export const changeNewPostVal = (newVal) => {
+    state.profilePage.newPostVal = newVal;
+    rerenderAll(state);
+}
+
+export const subscribe = (observer) => {
+    rerenderAll = observer;
+}
 
 export default state;

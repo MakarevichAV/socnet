@@ -1,13 +1,14 @@
 import React from 'react';
 import s from './PostCreator.module.css';
 
-const PostCreator = () => {
-
-    const txtArea = React.createRef();
+const PostCreator = (props) => {
 
     const addPost = () => {
-        const text = txtArea.current.value;
-        alert(text);
+        props.addPost();
+    }
+
+    const onChangeVal = (e) => {
+        props.changeVal(e.target.value);
     }
 
     return (
@@ -15,7 +16,7 @@ const PostCreator = () => {
             <div className={s.newPost}>
                 <div class={s.photo}></div>
                 <textarea class={s.textarea} placeholder="Что у Вас нового?" 
-                    ref={txtArea}/>
+                    value={props.val} onChange={onChangeVal}/>
             </div>
             <button className={`${s.btn} ${s.type1}`} onClick={addPost}>
                 Опубликовать

@@ -3,10 +3,10 @@ import s from './Chat.module.css';
 import MsgArea from './MsgArea/MsgArea';
 import SendArea from './SendArea/SendArea';
 
-const Chat = ({state}) => {
+const Chat = ({msgs}) => {
     return (
         <div className={s.chat}>
-            <MsgArea msgs={state} />
+            <MsgArea msgs={msgs} />
             <SendArea />
         </div>
     )
