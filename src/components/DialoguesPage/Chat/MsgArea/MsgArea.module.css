@@ -19,6 +19,7 @@
     overflow: auto;
     padding: 0 30px;
     padding-top: 20px;
+    background: url(../plyaj.jpg) no-repeat center center / cover;
 }
 .feed::-webkit-scrollbar { 
     width: 5px;
