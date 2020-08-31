@@ -1,5 +1,8 @@
 const ADD_POST = 'ADD_POST';
 const CHANGE_NEW_POST_VAL = 'CHANGE_NEW_POST_VAL';
+const SEND_MSG = 'SEND_MSG';
+const CHANGE_NEW_MSG_VAL = 'CHANGE_NEW_MSG_VAL';
+
 
 let store = {
     _state: {
@@ -75,14 +78,15 @@ let store = {
                     txt: 'Принятое сообщение 2. Бла бла бла. Бла бла бла',
                     direction: 'received'
                 }
-            ]
+            ],
+            newMsgVal: ''
         }
     },
     getState() {
         return this._state;
     },
     _callSubscriber() {
-        console.log('satate changed');
+        console.log('state changed');
     },
     subscribe(observer) {
         this._callSubscriber = observer;
@@ -102,21 +106,26 @@ let store = {
         } else if (action.type === CHANGE_NEW_POST_VAL) {
             this._state.profilePage.newPostVal = action.newVal;
             this._callSubscriber(this._state);
+        } else if (action.type === SEND_MSG) {
+            const newMsg = {
+                id: 7,
+                txt: this._state.dialoguesPage.newMsgVal,
+                direction: 'sended'
+            };
+            this._state.dialoguesPage.msgs.push(newMsg);
+            this._state.dialoguesPage.newMsgVal = '';
+            this._callSubscriber(this._state);
+        } else if (action.type === CHANGE_NEW_MSG_VAL) {
+            this._state.dialoguesPage.newMsgVal = action.newMsg;
+            this._callSubscriber(this._state);
         }
     }
 }
 
-export const addPostAC = () => {
-    return {
-        type: ADD_POST
-    }
-}
-
-export const changeNewPostVal = (newVal) => {
-    return {
-        type: CHANGE_NEW_POST_VAL, 
-        newVal: newVal
-    }
-}
+// action creators
+export const addPostAC = () => ({ type: ADD_POST });
+export const changeNewPostVal = (newVal) => ({ type: CHANGE_NEW_POST_VAL, newVal: newVal });
+export const sendMsgAC = () => ({ type: SEND_MSG });
+export const changeNewMsgVal = (newMsg) => ({ type: CHANGE_NEW_MSG_VAL, newMsg: newMsg });
 
 export default store;

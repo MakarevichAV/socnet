@@ -12,7 +12,8 @@ const App = ({ state, dispatch }) => {
                 <Header />
                 <Route path="/profile" render={() => <ProfilePage profilePage={state.profilePage} 
                     dispatch={dispatch} />} />
-                <Route path="/dialogues" render={() => <DialoguesPage dialoguesPage={state.dialoguesPage} />} />
+                <Route path="/dialogues" render={() => <DialoguesPage dialoguesPage={state.dialoguesPage} 
+                    dispatch={dispatch} />} />
             </div>
         </BrowserRouter>
     );
