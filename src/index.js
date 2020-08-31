@@ -8,8 +8,7 @@ import App from './App';
 const rerenderAll = (state) => {
     ReactDOM.render(
         <React.StrictMode>
-            <App state={state} addPost={store.addPost.bind(store)}
-                changeNewPostVal={store.changeNewPostVal.bind(store)} />
+            <App state={state} dispatch={store.dispatch.bind(store)} />
         </React.StrictMode>,
         document.getElementById('root')
     );

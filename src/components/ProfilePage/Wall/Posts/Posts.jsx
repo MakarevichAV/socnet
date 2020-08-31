@@ -15,7 +15,8 @@ const Posts = (props) => {
     return (
         <>
             <div className={s.infoBlock}>
-                <PostCreator addPost={props.addPost} changeVal={props.changeNewPostVal} val={props.newPostVal}/>
+                <PostCreator val={props.newPostVal}
+                    dispatch={props.dispatch}/>
             </div>
             {posts}
         </>

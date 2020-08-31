@@ -4,11 +4,11 @@ import s from './PostCreator.module.css';
 const PostCreator = (props) => {
 
     const addPost = () => {
-        props.addPost();
+        props.dispatch({type: 'ADD_POST'});
     }
 
     const onChangeVal = (e) => {
-        props.changeVal(e.target.value);
+        props.dispatch({type: 'CHANGE_NEW_POST_VAL', newVal: e.target.value});
     }
 
     return (

@@ -5,13 +5,13 @@ import ProfilePage from './components/ProfilePage/ProfilePage';
 import DialoguesPage from './components/DialoguesPage/DialoguesPage';
 import { Route, BrowserRouter } from 'react-router-dom';
 
-const App = ({ state, addPost, changeNewPostVal }) => {
+const App = ({ state, dispatch }) => {
     return (
         <BrowserRouter>
             <div className="App">
                 <Header />
                 <Route path="/profile" render={() => <ProfilePage profilePage={state.profilePage} 
-                    addPost={addPost} changeNewPostVal={changeNewPostVal} />} />
+                    dispatch={dispatch} />} />
                 <Route path="/dialogues" render={() => <DialoguesPage dialoguesPage={state.dialoguesPage} />} />
             </div>
         </BrowserRouter>

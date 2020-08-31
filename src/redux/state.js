@@ -81,24 +81,25 @@ let store = {
     _callSubscriber() {
         console.log('satate changed');
     },
-    addPost() {
-        const newPost = {
-            id: 5,
-            msg: this._state.profilePage.newPostVal,
-            name: 'Макар',
-            date: '28 августа в 14:55',
-            likesCount: 0
-        };
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostVal = '';
-        this._callSubscriber(this._state);
-    },
-    changeNewPostVal(newVal) {
-        this._state.profilePage.newPostVal = newVal;
-        this._callSubscriber(this._state);
-    },
     subscribe(observer) {
         this._callSubscriber = observer;
+    },
+    dispatch(action) {
+        if (action.type === 'ADD_POST') {
+            const newPost = {
+                id: 5,
+                msg: this._state.profilePage.newPostVal,
+                name: 'Макар',
+                date: '28 августа в 14:55',
+                likesCount: 0
+            };
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostVal = '';
+            this._callSubscriber(this._state);
+        } else if (action.type === 'CHANGE_NEW_POST_VAL') {
+            this._state.profilePage.newPostVal = action.newVal;
+            this._callSubscriber(this._state);
+        }
     }
 }
 
