@@ -1,22 +1,22 @@
 import * as serviceWorker from './serviceWorker';
-import state, { subscribe } from './redux/state';
+import store from './redux/state';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {addPost, changeNewPostVal} from './redux/state';
 
 const rerenderAll = (state) => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <App state={state} addPost={addPost} changeNewPostVal={changeNewPostVal}/>
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
+    ReactDOM.render(
+        <React.StrictMode>
+            <App state={state} addPost={store.addPost.bind(store)}
+                changeNewPostVal={store.changeNewPostVal.bind(store)} />
+        </React.StrictMode>,
+        document.getElementById('root')
+    );
 }
 
-rerenderAll(state);
+rerenderAll(store.getState());
 
-subscribe(rerenderAll)
+store.subscribe(rerenderAll)
 
 serviceWorker.unregister();
