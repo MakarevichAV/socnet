@@ -3,11 +3,11 @@ import s from './DialoguesPage.module.css';
 import SideBar from './SideBar/SideBar';
 import Chat from './Chat/Chat';
 
-const DialoguesPage = (props) => {
+const DialoguesPage = () => {
     return (
         <div className={s.chatRoom}>
-            <SideBar store={props.store} />
-            <Chat store={props.store} />
+            <SideBar />
+            <Chat />
         </div>
     )
 }

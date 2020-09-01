@@ -1,21 +1,28 @@
 import React from 'react';
 import s from './SideBar.module.css';
 import Dialogue from './Dialogue/Dialogue';
+import StoreContext from '../../../StoreContext';
 
-const SideBar = (props) => {
-
-    let state = props.store.getState();
-
-    const dialogues = state.dialoguesPage.dialogues.map((item) => {
-        return (
-            <Dialogue name={item.name} id={item.id} />
-        )
-    })
+const SideBar = () => {
 
     return (
-        <div className={s.sideBar}>
-            {dialogues}
-        </div>
+        <StoreContext.Consumer>
+            {
+                (store) => {
+                    let state = store.getState();
+                    const dialogues = state.dialoguesPage.dialogues.map((item) => {
+                        return (
+                            <Dialogue name={item.name} id={item.id} />
+                        )
+                    })
+                    return (
+                        <div className={s.sideBar}>
+                            {dialogues}
+                        </div>
+                    )
+                }
+            }
+        </StoreContext.Consumer>
     )
 }
 
