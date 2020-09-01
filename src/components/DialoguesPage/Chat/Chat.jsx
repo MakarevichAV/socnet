@@ -1,14 +1,13 @@
 import React from 'react';
 import s from './Chat.module.css';
 import MsgArea from './MsgArea/MsgArea';
-import SendArea from './SendArea/SendArea';
+import SendAreaContainer from './SendArea/SendAreaContainer';
 
-const Chat = ({ msgs, newMsgVal, dispatch }) => {
+const Chat = (props) => {
     return (
         <div className={s.chat}>
-            <MsgArea msgs={msgs} />
-            <SendArea newMsgVal={newMsgVal} 
-                dispatch={dispatch} />
+            <MsgArea store={props.store} />
+            <SendAreaContainer store={props.store} />
         </div>
     )
 }

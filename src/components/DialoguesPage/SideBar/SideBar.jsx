@@ -4,7 +4,9 @@ import Dialogue from './Dialogue/Dialogue';
 
 const SideBar = (props) => {
 
-    const dialogues = props.dialogues.map((item) => {
+    let state = props.store.getState();
+
+    const dialogues = state.dialoguesPage.dialogues.map((item) => {
         return (
             <Dialogue name={item.name} id={item.id} />
         )

@@ -3,12 +3,11 @@ import s from './ProfilePage.module.css';
 import UserBar from './UserBar/UserBar';
 import Wall from './Wall/Wall';
 
-const ProfilePage = ({ profilePage, dispatch }) => {
+const ProfilePage = (props) => {
     return (
         <div className={`${s.ProfilePage} container`}>
             <UserBar />
-            <Wall posts={profilePage.posts} newPostVal={profilePage.newPostVal}
-                dispatch={dispatch} />
+            <Wall store={props.store} />
         </div>
     )
 }

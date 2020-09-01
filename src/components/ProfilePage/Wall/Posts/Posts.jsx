@@ -4,6 +4,7 @@ import Post from './Post/Post';
 import PostCreator from './PostCreator/PostCreator';
 
 const Posts = (props) => {
+
     const posts = props.posts.map((item) => {
         return (
             <div className={s.infoBlock}>
@@ -16,7 +17,7 @@ const Posts = (props) => {
         <>
             <div className={s.infoBlock}>
                 <PostCreator val={props.newPostVal}
-                    dispatch={props.dispatch}/>
+                    addPost={props.addPost} changePostVal={props.changePostVal} />
             </div>
             {posts}
         </>

@@ -1,15 +1,14 @@
 import React from 'react';
-import { addPostAC, changeNewPostVal } from '../../../../../redux/profileReducer';
 import s from './PostCreator.module.css';
 
 const PostCreator = (props) => {
 
-    const addPost = () => {
-        props.dispatch(addPostAC());
+    const onAddPost = () => {
+        props.addPost();
     }
 
     const onChangeVal = (e) => {
-        props.dispatch(changeNewPostVal(e.target.value));
+        props.changePostVal(e.target.value);
     }
 
     return (
@@ -19,7 +18,7 @@ const PostCreator = (props) => {
                 <textarea class={s.textarea} placeholder="Что у Вас нового?"
                     value={props.val} onChange={onChangeVal} />
             </div>
-            <button className={`${s.btn} ${s.type1}`} onClick={addPost}>
+            <button className={`${s.btn} ${s.type1}`} onClick={onAddPost}>
                 Опубликовать
             </button>
         </>

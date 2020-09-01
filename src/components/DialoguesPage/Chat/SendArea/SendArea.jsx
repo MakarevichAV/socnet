@@ -1,22 +1,21 @@
 import React from 'react';
-import { sendMsgAC, changeNewMsgVal } from '../../../../redux/dialoguesReducer';
 import s from './SendArea.module.css';
 
 const SendArea = (props) => {
 
-    const sendMsg = () => {
-        props.dispatch(sendMsgAC());
+    const onSendMsg = () => {
+        props.sendMsg();
     }
 
     const onChangeVal = (e) => {
-        props.dispatch(changeNewMsgVal(e.target.value));
+        props.changeVal(e.target.value);
     }
 
     return (
         <div className={s.sendArea}>
-            <textarea className={s.txtarea} value={props.newMsgVal}
+            <textarea className={s.txtarea} value={props.val}
                 onChange={onChangeVal} />
-            <button className={s.btn} onClick={sendMsg}></button>
+            <button className={s.btn} onClick={onSendMsg}></button>
         </div>
     )
 }

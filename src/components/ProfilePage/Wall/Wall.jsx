@@ -1,18 +1,16 @@
 import React from 'react';
-// import {useSelector} from './node_modules/react-redux';
 import s from './Wall.module.css';
 import Info from './Info/Info';
-import Posts from './Posts/Posts';
+import PostsContainer from './Posts/PostsContainer';
 
-const Wall = ({ posts, newPostVal, dispatch }) => {
+const Wall = (props) => {
     return (
         <div className={s.wall}>
             <div className={s.container}>
                 <Info />
             </div>
             <div className={s.container}>
-                <Posts posts={posts} newPostVal={newPostVal}
-                    dispatch={dispatch} />
+                <PostsContainer store={props.store} />
             </div>
         </div>
     )

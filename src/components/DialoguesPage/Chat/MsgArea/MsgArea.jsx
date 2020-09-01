@@ -4,7 +4,9 @@ import Msg from './Msg/Msg';
 
 const MsgArea = (props) => {
 
-    const msgs = props.msgs.map((item) => {
+    let state = props.store.getState();
+
+    const msgs = state.dialoguesPage.msgs.map((item) => {
         const { id, txt, direction } = item;
         return (
             <Msg text={txt}
