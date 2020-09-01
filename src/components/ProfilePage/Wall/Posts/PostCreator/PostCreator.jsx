@@ -1,5 +1,5 @@
 import React from 'react';
-import { addPostAC, changeNewPostVal } from '../../../../../redux/postsReducer';
+import { addPostAC, changeNewPostVal } from '../../../../../redux/profileReducer';
 import s from './PostCreator.module.css';
 
 const PostCreator = (props) => {

@@ -1,4 +1,4 @@
-import postsReducer from "./postsReducer";
+import profileReducer from "./profileReducer";
 import dialoguesReducer from "./dialoguesReducer";
 import sidebarReducer from "./sidebarReducer";
 
@@ -92,7 +92,7 @@ let store = {
     },
     dispatch(action) {
 
-        this._state.profilePage = postsReducer(this._state.profilePage, action);
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
         this._state.dialoguesPage = dialoguesReducer(this._state.dialoguesPage, action);
         this._state.sidebar = sidebarReducer(this._state.sidebar, action);
         
