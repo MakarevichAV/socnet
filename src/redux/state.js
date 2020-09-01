@@ -1,8 +1,6 @@
-const ADD_POST = 'ADD_POST';
-const CHANGE_NEW_POST_VAL = 'CHANGE_NEW_POST_VAL';
-const SEND_MSG = 'SEND_MSG';
-const CHANGE_NEW_MSG_VAL = 'CHANGE_NEW_MSG_VAL';
-
+import postsReducer from "./postsReducer";
+import dialoguesReducer from "./dialoguesReducer";
+import sidebarReducer from "./sidebarReducer";
 
 let store = {
     _state: {
@@ -80,7 +78,8 @@ let store = {
                 }
             ],
             newMsgVal: ''
-        }
+        },
+        sidebar: {}
     },
     getState() {
         return this._state;
@@ -92,40 +91,14 @@ let store = {
         this._callSubscriber = observer;
     },
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            const newPost = {
-                id: 5,
-                msg: this._state.profilePage.newPostVal,
-                name: 'Макар',
-                date: '28 августа в 14:55',
-                likesCount: 0
-            };
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostVal = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === CHANGE_NEW_POST_VAL) {
-            this._state.profilePage.newPostVal = action.newVal;
-            this._callSubscriber(this._state);
-        } else if (action.type === SEND_MSG) {
-            const newMsg = {
-                id: 7,
-                txt: this._state.dialoguesPage.newMsgVal,
-                direction: 'sended'
-            };
-            this._state.dialoguesPage.msgs.push(newMsg);
-            this._state.dialoguesPage.newMsgVal = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === CHANGE_NEW_MSG_VAL) {
-            this._state.dialoguesPage.newMsgVal = action.newMsg;
-            this._callSubscriber(this._state);
-        }
+
+        this._state.profilePage = postsReducer(this._state.profilePage, action);
+        this._state.dialoguesPage = dialoguesReducer(this._state.dialoguesPage, action);
+        this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+        
+        this._callSubscriber(this._state);
+    
     }
 }
-
-// action creators
-export const addPostAC = () => ({ type: ADD_POST });
-export const changeNewPostVal = (newVal) => ({ type: CHANGE_NEW_POST_VAL, newVal: newVal });
-export const sendMsgAC = () => ({ type: SEND_MSG });
-export const changeNewMsgVal = (newMsg) => ({ type: CHANGE_NEW_MSG_VAL, newMsg: newMsg });
 
 export default store;

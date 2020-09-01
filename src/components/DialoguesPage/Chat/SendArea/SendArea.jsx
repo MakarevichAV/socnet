@@ -1,5 +1,5 @@
 import React from 'react';
-import { sendMsgAC, changeNewMsgVal } from '../../../../redux/state';
+import { sendMsgAC, changeNewMsgVal } from '../../../../redux/dialoguesReducer';
 import s from './SendArea.module.css';
 
 const SendArea = (props) => {
