@@ -25,12 +25,16 @@ class UsersPage extends React.Component {
     render() {
         const pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
         let pages = [];
-        for (let i=1; i <= pagesCount; i++) {
-            pages.push(i);
+        for (let i = 1; i <= pagesCount; i++) {
+            if (i <= 11 && this.props.currentPage <= 6) {
+                pages.push(i);
+            } else if (this.props.currentPage - i <= 5 && i - this.props.currentPage <= 5) {
+                pages.push(i);
+            }
         }
         const pageNumbers = pages.map((number) => {
             return (
-                <span className={this.props.currentPage === number && s.selected}
+                <span key={number} className={`${this.props.currentPage === number && s.selected} ${s.paginationItem}`}
                     onClick={() => this.onPageChanged(number)}>{number}</span>
             )
         });
@@ -69,8 +73,21 @@ class UsersPage extends React.Component {
         });
         return (
             <div className={`${s.userPage} container`}>
-                {pageNumbers}
+                <div className={s.pagination}>
+                    {pages[0] >= 2 ? <span className={s.paginationItem}
+                                            onClick={() => this.onPageChanged(1)}>...</span> : null}
+                    {pageNumbers}
+                    {pages[pageNumbers.length - 1] <= pagesCount - 1 ? <span className={s.paginationItem}
+                                            onClick={() => this.onPageChanged(pagesCount)}>...</span> : null}
+                </div>
                 {users}
+                <div className={s.pagination}>
+                    {pages[0] >= 2 ? <span className={s.paginationItem}
+                                            onClick={() => this.onPageChanged(1)}>...</span> : null}
+                    {pageNumbers}
+                    {pages[pageNumbers.length - 1] <= pagesCount - 1 ? <span className={s.paginationItem}
+                                            onClick={() => this.onPageChanged(pagesCount)}>...</span> : null}
+                </div>
             </div>
         )
     }
