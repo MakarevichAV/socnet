@@ -5,7 +5,7 @@ import Wall from './Wall/Wall';
 
 const ProfilePage = () => {
     return (
-        <div className={`${s.ProfilePage} container`}>
+        <div className={`${s.profilePage} container`}>
             <UserBar />
             <Wall />
         </div>

@@ -14,8 +14,8 @@ const PostCreator = (props) => {
     return (
         <>
             <div className={s.newPost}>
-                <div class={s.photo}></div>
-                <textarea class={s.textarea} placeholder="Что у Вас нового?"
+                <div className={s.photo}></div>
+                <textarea className={s.textarea} placeholder="Что у Вас нового?"
                     value={props.val} onChange={onChangeVal} />
             </div>
             <button className={`${s.btn} ${s.type1}`} onClick={onAddPost}>

@@ -37,7 +37,7 @@ let initialState = {
 
 const postsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_POST:
+        case ADD_POST: {
             const newPost = {
                 id: 5,
                 msg: state.newPostVal,
@@ -45,12 +45,18 @@ const postsReducer = (state = initialState, action) => {
                 date: '28 августа в 14:55',
                 likesCount: 0
             };
-            state.posts.push(newPost);
-            state.newPostVal = '';
-            return state;
-        case CHANGE_NEW_POST_VAL:
-            state.newPostVal = action.newVal;
-            return state;
+            return {
+                ...state,
+                posts: [...state.posts, newPost],
+                newPostVal: ''
+            }
+        }
+        case CHANGE_NEW_POST_VAL: {
+            return {
+                ...state,
+                newPostVal: action.newVal
+            }
+        }
         default:
             return state;
     }

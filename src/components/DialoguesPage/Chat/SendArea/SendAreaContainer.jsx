@@ -1,30 +1,24 @@
 import React from 'react';
 import { sendMsgAC, changeNewMsgVal } from '../../../../redux/dialoguesReducer';
 import SendArea from './SendArea';
-import StoreContext from '../../../../StoreContext';
+import { connect } from 'react-redux';
 
-const SendAreaContainer = () => {
-
-    return (
-        <StoreContext.Consumer>
-            {
-                (store) => {
-                    let state = store.getState();
-                    const sendMsg = () => {
-                        store.dispatch(sendMsgAC());
-                    }
-                    const changeVal = (val) => {
-                        store.dispatch(changeNewMsgVal(val));
-                    }
-                    return (
-                        <SendArea   val={state.dialoguesPage.newMsgVal}
-                                    changeVal={changeVal} 
-                                    sendMsg={sendMsg} />
-                    )
-                }
-            }
-        </StoreContext.Consumer>
-    )
+const mapStateToProps = (state) => {
+    return {
+        val: state.dialoguesPage.newMsgVal
+    }
 }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changeVal: (val) => {
+            dispatch(changeNewMsgVal(val));
+        },
+        sendMsg: () => {
+            dispatch(sendMsgAC());
+        }
+    }
+}
+
+const SendAreaContainer = connect(mapStateToProps, mapDispatchToProps)(SendArea);
 
 export default SendAreaContainer;

@@ -4,6 +4,22 @@
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
-    height: calc(100vh - 155px);
+    height: calc(100vh - 120px);
     padding: 0 20px;
+    padding-top: 30px;
+}
+
+@media (max-width: 1240px) {
+    .chatRoom {
+        padding: 0;
+        height: calc(100vh - 90px);
+    }
+}
+
+@media (max-width: 900px) {
+    .chatRoom {
+        display: block;
+        position: relative;
+        overflow: hidden;
+    }
 }

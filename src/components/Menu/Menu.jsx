@@ -7,6 +7,7 @@ const Menu = () => {
         <ul className={s.nav}>
             <li><NavLink to="/profile">Профиль</NavLink></li>
             <li><NavLink to="/dialogues">Сообщения</NavLink></li>
+            <li><NavLink to="/users">Друзья</NavLink></li>
             <li><NavLink to="/food">Питание</NavLink></li>  
             <li><NavLink to="/activity">Физуха</NavLink></li> 
             <li><NavLink to="/trainer">Тренер</NavLink></li>

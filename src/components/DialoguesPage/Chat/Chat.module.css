@@ -7,3 +7,18 @@
     border-right: 3px solid var(--bg-color);
     border-left: 3px solid var(--bg-color);
 }
+
+@media (max-width: 1240px) {
+    .chat {
+        border: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .chat {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        right: -100%;
+    }
+}

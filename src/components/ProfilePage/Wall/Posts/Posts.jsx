@@ -7,7 +7,7 @@ const Posts = (props) => {
 
     const posts = props.posts.map((item) => {
         return (
-            <div className={s.infoBlock}>
+            <div key={item.id} className={s.infoBlock}>
                 <Post id={item.id} msg={item.msg} name={item.name} date={item.date} />
             </div>
         )

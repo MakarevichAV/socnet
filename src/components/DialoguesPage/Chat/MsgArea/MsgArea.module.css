@@ -8,10 +8,13 @@
     justify-content: flex-end;
     max-height: 100%;
     overflow: hidden;
-    border: 2px solid #f7f7f7;
-    border-top: 55px solid #f7f7f7;
+    border-right: 2px solid #f7f7f7;
+    border-left: 2px solid #f7f7f7;
+    border-top: 36px solid #f7f7f7;
     border-radius: 8px 8px 0 0;
+    background: url(../plyaj.jpg) no-repeat center center / cover;
 }
+
 .feed {
     display: flex;
     flex-direction: column;
@@ -19,13 +22,22 @@
     overflow: auto;
     padding: 0 30px;
     padding-top: 20px;
-    background: url(../plyaj.jpg) no-repeat center center / cover;
 }
-.feed::-webkit-scrollbar { 
+
+.feed::-webkit-scrollbar {
     width: 5px;
 }
 
 .feed::-webkit-scrollbar-thumb {
     background: hsla(191, 48%, 35%, 0.5);
     border-radius: 2px;
+}
+
+@media (max-width: 1240px) {
+    .msgArea {
+        border-radius: 0;
+        border-right: 0;
+        border-left: 0;
+        border-top: 0;
+    }
 }

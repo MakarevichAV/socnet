@@ -1,12 +1,12 @@
 import React from 'react';
 import s from './DialoguesPage.module.css';
-import SideBar from './SideBar/SideBar';
 import Chat from './Chat/Chat';
+import SideBarContainer from './SideBar/SideBarContainer';
 
 const DialoguesPage = () => {
     return (
         <div className={s.chatRoom}>
-            <SideBar />
+            <SideBarContainer />
             <Chat />
         </div>
     )

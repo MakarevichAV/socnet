@@ -52,12 +52,16 @@ const dialoguesReducer = (state = initialState, action) => {
                 txt: state.newMsgVal,
                 direction: 'sended'
             };
-            state.msgs.push(newMsg);
-            state.newMsgVal = '';
-            return state;
+            return {
+                ...state,
+                msgs: [...state.msgs, newMsg],
+                newMsgVal: ''
+            };
         case CHANGE_NEW_MSG_VAL:
-            state.newMsgVal = action.newMsg;
-            return state;
+            return {
+                ...state,
+                newMsgVal: action.newMsg
+            }
         default:
             return state;
     }

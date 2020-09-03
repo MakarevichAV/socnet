@@ -28,3 +28,10 @@
     background: url(./send.png) no-repeat center center / contain;
     cursor: pointer;
 }
+
+@media (max-width: 1240px) {
+    .sendArea {
+        border-radius: 0;
+        background: var(--main-color);
+    }
+}

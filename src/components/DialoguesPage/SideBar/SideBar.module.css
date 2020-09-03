@@ -11,20 +11,27 @@
     overflow: auto;
 }
 
-@media (max-width: 900px) {
-    .sideBar {
-        max-width: 600px;
-        min-width: 370px;
-        margin: 0 auto;
-        margin-bottom: 30px;
-    }
-}
-
-.sideBar::-webkit-scrollbar { 
+.sideBar::-webkit-scrollbar {
     width: 5px;
 }
 
 .sideBar::-webkit-scrollbar-thumb {
     background: var(--main-color);
     border-radius: 2px;
+}
+
+@media (max-width: 1240px) {
+    .sideBar {
+        border-radius: 0;
+        border-right: 0;
+        border-left: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .sideBar {
+        max-width: initial;
+        width: 100%;
+        border-right: none;
+    }
 }
