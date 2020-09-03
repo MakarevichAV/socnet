@@ -1,36 +1,16 @@
 import React from 'react';
 import s from './UsersPage.module.css';
 import cn from 'classnames';
+import * as axios from 'axios';
+import userPhoto from '../../assets/images/user-photo.jpg';
 
 const UsersPage = (props) => {
 
     if (props.users.length === 0) {
-        props.setUsers([
-            {
-                id: 1,
-                photoUrl: 'https://icon-library.net/images/windows-user-icon/windows-user-icon-14.jpg',
-                followed: true,
-                name: 'Aleksandr Makarevich',
-                nickname: 'Makar',
-                status: 'Веду здоровый образ жизни',
-                location: {
-                    country: 'Belarus',
-                    city: 'Minsk'
-                }
-            },
-            {
-                id: 2,
-                photoUrl: 'https://icon-library.net/images/windows-user-icon/windows-user-icon-14.jpg',
-                followed: false,
-                name: 'Kseniya Makarevich',
-                nickname: 'Kuna',
-                status: 'Я тоже ЗОЖница еще какая',
-                location: {
-                    country: 'Israel',
-                    city: 'Tel Aviv'
-                }
-            }
-        ])
+        axios.get("https://social-network.samuraijs.com/api/1.0/users")
+            .then(response => {
+                props.setUsers(response.data.items)
+            });
     }
 
     const users = props.users.map((user) => {
@@ -39,11 +19,12 @@ const UsersPage = (props) => {
             { [s.follow]: !user.followed },
             { [s.unfollow]: user.followed }
         );
+        const photoUrl = user.photos.small != null ? user.photos.small : userPhoto;
         return (
             <div key={user.id} className={s.user}>
                 <div className={s.leftSide}>
                     <div className={s.photo}
-                        style={{ backgroundImage: `url(${user.photoUrl})` }}></div>
+                        style={{ backgroundImage: `url(${photoUrl})` }}></div>
                     <button className={btnClasses}
                         onClick={user.followed ?
                             () => { props.unfollow(user.id) } :
@@ -53,13 +34,13 @@ const UsersPage = (props) => {
                 </div>
                 <div className={s.rightSide}>
                     <div className={s.names}>
-                        <p className={s.nick}>{user.nickname}</p>
+                        <p className={s.nick}>NickName</p>
                         <p className={s.name}>{user.name}</p>
-                        <p className={s.status}>{user.status}</p>
+                        <p className={s.status}>Мой статус прост, как краткий тост</p>
                     </div>
                     <div className={s.location}>
-                        <p className={s.country}>{user.location.country}</p>
-                        <p className={s.city}>{user.location.city}</p>
+                        <p className={s.country}>Israel</p>
+                        <p className={s.city}>Tel Aviv</p>
                     </div>
                 </div>
             </div>
