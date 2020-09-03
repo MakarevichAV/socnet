@@ -85,3 +85,8 @@
     font-size: 14px;
     color: var(--txt-1);
 }
+
+
+.selected {
+    font-weight: bold;
+}
