@@ -1,8 +1,8 @@
 import React from 'react';
 import s from './UserInfo.module.css';
+import defaultPhoto from '../../../../assets/images/user-photo.jpg';
 
-const UserInfo = () => {
-
+const UserInfo = (props) => {
     // склонение ГОД/ГОДА/ЛЕТ
     // let yearsTxt;
     // if (age <= 20) {
@@ -26,12 +26,15 @@ const UserInfo = () => {
     //         dispatch(editUserInfo(userData.user));
     //     }    
     // },[userData.age]);
-
-
+    const userPhoto = {
+        backgroundImage: `url(${props.photo ? props.photo : defaultPhoto})`
+    }
+    
     return (
         <div className={s.info}>
-            <div className={s.photo}></div>
-            <p className={s.name}>Макар</p>
+            <div className={s.photo}
+                style={userPhoto}></div>
+            <p className={s.name}>{props.name}</p>
             <div className={s.data}>
                 {/* <InfoItem name="Возраст" value="31" unit="год" />
                 <InfoItem name="Рост" value="189" unit="см" />

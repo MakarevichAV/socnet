@@ -1,0 +1,26 @@
+.pagination {
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.paginationItem {
+    display: inline-block;
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 19px;
+    color: var(--txt-2);
+}
+
+.paginationItem:hover {
+    background: #d7d7d7;
+}
+
+.selected {
+    color: white;
+    background: var(--color-1);
+}
+
+.selected:hover {
+    background: var(--color-1);
+}

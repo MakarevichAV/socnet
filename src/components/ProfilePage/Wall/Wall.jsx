@@ -3,11 +3,11 @@ import s from './Wall.module.css';
 import Info from './Info/Info';
 import PostsContainer from './Posts/PostsContainer';
 
-const Wall = () => {
+const Wall = (props) => {
     return (
         <div className={s.wall}>
             <div className={s.container}>
-                <Info />
+                <Info {...props} />
             </div>
             <div className={s.container}>
                 <PostsContainer />

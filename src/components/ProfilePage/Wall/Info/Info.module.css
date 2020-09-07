@@ -1,6 +1,6 @@
 .head {
-    color: var(--color-1);
-    font-size: 28px;
+    color: var(--txt-2);
+    font-size: 24px;
     margin-bottom: 30px;
 }
 
@@ -9,4 +9,25 @@
     margin-bottom: 30px;
     padding: 30px 20px;
     border-radius: 8px;
+}
+
+.status {
+    color: var(--txt-2);
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.key {
+    font-weight: bold;
+}
+
+.jobStatus {
+    color: var(--txt-1);
+    font-size: 20px;
+}
+
+.description {
+    color: var(--txt-1);
+    font-size: 20px;
+    font-style: italic;
 }

@@ -7,9 +7,6 @@ const mapStateToProps = (state) => {
         dialogues: state.dialoguesPage.dialogues
     }
 }
-// const mapDispatchToProps = (dispatch) => {
-//     return {}
-// }
 
 const SideBarContainer = connect(mapStateToProps)(SideBar);
 

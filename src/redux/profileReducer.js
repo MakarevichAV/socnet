@@ -1,7 +1,9 @@
 const ADD_POST = 'ADD_POST';
 const CHANGE_NEW_POST_VAL = 'CHANGE_NEW_POST_VAL';
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
 
 let initialState = {
+    profile: null,
     posts: [
         {
             id: 1,
@@ -57,6 +59,11 @@ const postsReducer = (state = initialState, action) => {
                 newPostVal: action.newVal
             }
         }
+        case SET_USER_PROFILE:
+            return {
+                ...state,
+                profile: action.profile
+            }
         default:
             return state;
     }
@@ -64,5 +71,6 @@ const postsReducer = (state = initialState, action) => {
 
 export const addPostAC = () => ({ type: ADD_POST });
 export const changeNewPostVal = (newVal) => ({ type: CHANGE_NEW_POST_VAL, newVal: newVal });
+export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile: profile });
 
 export default postsReducer;

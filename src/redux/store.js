@@ -1,6 +1,7 @@
 import profileReducer from "./profileReducer";
 import dialoguesReducer from "./dialoguesReducer";
 import sidebarReducer from "./sidebarReducer";
+import authReducer from "./authReducer";
 
 let store = {
     _state: {
@@ -95,6 +96,7 @@ let store = {
         this._state.profilePage = profileReducer(this._state.profilePage, action);
         this._state.dialoguesPage = dialoguesReducer(this._state.dialoguesPage, action);
         this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+        this._state.auth = authReducer(this._state.auth, action);
         
         this._callSubscriber(this._state);
     
