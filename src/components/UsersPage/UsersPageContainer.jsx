@@ -2,32 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {
     follow, unfollow,
-    setUsers, setCurrentPage,
-    setTotalUsersCount, toggleIsFetching,
-    toggleFollowingProcess
+    setCurrentPage,
+    toggleFollowingProcess,
+    getUsers
 } from '../../redux/usersReducer';
 import UserPage from './UserPage';
 import Preloader from '../common/Preloader/Preloader';
-import { userAPI } from '../../api/api';
 
 class UsersPageContainer extends React.Component {
 
     componentDidMount() {
-        this.props.toggleIsFetching(true);
-        userAPI.getUsers(this.props.pageSize, this.props.currentPage).then(data => {
-                this.props.toggleIsFetching(false);
-                this.props.setUsers(data.items);
-                this.props.setTotalUsersCount(data.totalCount);
-            });
+        this.props.getUsers(this.props.pageSize, this.props.currentPage);
     }
 
     onPageChanged = (number) => {
-        this.props.toggleIsFetching(true);
         this.props.setCurrentPage(number);
-        userAPI.getUsers(this.props.pageSize, number).then(data => {
-                this.props.toggleIsFetching(false);
-                this.props.setUsers(data.items)
-            });
+        this.props.getUsers(this.props.pageSize, number);
     }
 
     render() {
@@ -42,8 +32,7 @@ class UsersPageContainer extends React.Component {
                     totalUsersCount={this.props.totalUsersCount}
                     currentPage={this.props.currentPage}
                     toggleFollowingProcess={this.props.toggleFollowingProcess}
-                    followingInProcess={this.props.followingInProcess}
-                />
+                    followingInProcess={this.props.followingInProcess} />
             </>
         )
     }
@@ -61,5 +50,10 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps,
-    { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching, toggleFollowingProcess })
+    {
+        follow, unfollow,
+        setCurrentPage,
+        toggleFollowingProcess,
+        getUsers // thunk
+    })
     (UsersPageContainer);
