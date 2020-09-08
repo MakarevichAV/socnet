@@ -6,7 +6,7 @@ import UserCard from './UserCard/UserCard';
 const UserPage = (props) => {
     const users = props.users.map((user) => {
         return (
-            <UserCard user={user} unfollow={props.unfollow} follow={props.follow} />
+            <UserCard key={user.id} user={user} unfollow={props.unfollow} follow={props.follow} />
         )
     });
     return (

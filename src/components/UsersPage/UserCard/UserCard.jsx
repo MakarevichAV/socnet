@@ -3,6 +3,7 @@ import s from './UserCard.module.css';
 import cn from 'classnames';
 import userPhoto from '../../../assets/images/user-photo.jpg';
 import { NavLink } from 'react-router-dom';
+import { userAPI } from '../../../api/api';
 
 const UserCard = ({ user, unfollow, follow }) => {
     const btnClasses = cn(
@@ -20,8 +21,20 @@ const UserCard = ({ user, unfollow, follow }) => {
                 </NavLink>
                 <button className={btnClasses}
                     onClick={user.followed ?
-                        () => { unfollow(user.id) } :
-                        () => { follow(user.id) }}>
+                        () => {
+                            userAPI.setUnfollow(user.id).then(data => {
+                                    if (data.resultCode === 0) {
+                                        unfollow(user.id)
+                                    }
+                                });
+                        } :
+                        () => {
+                            userAPI.setFollow(user.id).then(data => {
+                                    if (data.resultCode === 0) {
+                                        follow(user.id)
+                                    }
+                                });
+                        }}>
                     {user.followed ? 'UNFOLLOW' : 'FOLLOW'}
                 </button>
             </div>
