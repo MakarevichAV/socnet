@@ -40,6 +40,11 @@
     background-color: var(--color-2);
 }
 
+.disabled {
+    background: rgb(73, 73, 73);
+    color: rgb(128, 128, 128);
+}
+
 .rightSide {
     flex-grow: 1;
     display: flex;

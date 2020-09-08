@@ -9,7 +9,8 @@ const UserCard = ({ user, unfollow, follow, toggleFollowingProcess, followingInP
     const btnClasses = cn(
         s.btn,
         { [s.follow]: !user.followed },
-        { [s.unfollow]: user.followed }
+        { [s.unfollow]: user.followed },
+        { [s.disabled]: followingInProcess.some(id => id === user.id) }
     );
     const photoUrl = user.photos.small != null ? user.photos.small : userPhoto;
     return (
@@ -19,24 +20,24 @@ const UserCard = ({ user, unfollow, follow, toggleFollowingProcess, followingInP
                     <div className={s.photo}
                         style={{ backgroundImage: `url(${photoUrl})` }}></div>
                 </NavLink>
-                <button className={btnClasses} disabled={followingInProcess}
+                <button className={btnClasses} disabled={followingInProcess.some(id => id === user.id)}
                     onClick={user.followed ?
                         () => {
-                            toggleFollowingProcess(true);
+                            toggleFollowingProcess(true, user.id);
                             userAPI.setUnfollow(user.id).then(data => {
                                     if (data.resultCode === 0) {
                                         unfollow(user.id)
                                     }
-                                    toggleFollowingProcess(false);
+                                    toggleFollowingProcess(false, user.id);
                                 });
                         } :
                         () => {
-                            toggleFollowingProcess(true);
+                            toggleFollowingProcess(true, user.id);
                             userAPI.setFollow(user.id).then(data => {
                                     if (data.resultCode === 0) {
                                         follow(user.id)
                                     }
-                                    toggleFollowingProcess(false);
+                                    toggleFollowingProcess(false, user.id);
                                 });
                         }}>
                     {user.followed ? 'UNFOLLOW' : 'FOLLOW'}
