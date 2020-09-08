@@ -5,7 +5,7 @@ import userPhoto from '../../../assets/images/user-photo.jpg';
 import { NavLink } from 'react-router-dom';
 import { userAPI } from '../../../api/api';
 
-const UserCard = ({ user, unfollow, follow }) => {
+const UserCard = ({ user, unfollow, follow, toggleFollowingProcess, followingInProcess }) => {
     const btnClasses = cn(
         s.btn,
         { [s.follow]: !user.followed },
@@ -19,20 +19,24 @@ const UserCard = ({ user, unfollow, follow }) => {
                     <div className={s.photo}
                         style={{ backgroundImage: `url(${photoUrl})` }}></div>
                 </NavLink>
-                <button className={btnClasses}
+                <button className={btnClasses} disabled={followingInProcess}
                     onClick={user.followed ?
                         () => {
+                            toggleFollowingProcess(true);
                             userAPI.setUnfollow(user.id).then(data => {
                                     if (data.resultCode === 0) {
                                         unfollow(user.id)
                                     }
+                                    toggleFollowingProcess(false);
                                 });
                         } :
                         () => {
+                            toggleFollowingProcess(true);
                             userAPI.setFollow(user.id).then(data => {
                                     if (data.resultCode === 0) {
                                         follow(user.id)
                                     }
+                                    toggleFollowingProcess(false);
                                 });
                         }}>
                     {user.followed ? 'UNFOLLOW' : 'FOLLOW'}
