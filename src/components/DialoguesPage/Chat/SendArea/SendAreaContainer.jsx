@@ -1,7 +1,9 @@
 import React from 'react';
+import { compose } from 'redux';
 import { sendMsgAC, changeNewMsgVal } from '../../../../redux/dialoguesReducer';
 import SendArea from './SendArea';
 import { connect } from 'react-redux';
+import { withAuthRedirect } from '../../../../hoc/withAuthRedirect';
 
 const mapStateToProps = (state) => {
     return {
@@ -19,6 +21,7 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const SendAreaContainer = connect(mapStateToProps, mapDispatchToProps)(SendArea);
-
-export default SendAreaContainer;
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect // HOC
+)(SendArea);

@@ -21,27 +21,9 @@ const UserCard = ({ user, unfollow, follow, toggleFollowingProcess, followingInP
                         style={{ backgroundImage: `url(${photoUrl})` }}></div>
                 </NavLink>
                 <button className={btnClasses} disabled={followingInProcess.some(id => id === user.id)}
-                    onClick={user.followed ?
-                        () => {
-                            unfollow(user.id);
-                            // toggleFollowingProcess(true, user.id);
-                            // userAPI.setUnfollow(user.id).then(data => {
-                            //         if (data.resultCode === 0) {
-                            //             unfollow(user.id)
-                            //         }
-                            //         toggleFollowingProcess(false, user.id);
-                            //     });
-                        } :
-                        () => {
-                            follow(user.id);
-                            // toggleFollowingProcess(true, user.id);
-                            // userAPI.setFollow(user.id).then(data => {
-                            //         if (data.resultCode === 0) {
-                            //             follow(user.id)
-                            //         }
-                            //         toggleFollowingProcess(false, user.id);
-                            //     });
-                        }}>
+                    onClick={user.followed
+                        ? () => { unfollow(user.id) }
+                        : () => { follow(user.id) }}>
                     {user.followed ? 'UNFOLLOW' : 'FOLLOW'}
                 </button>
             </div>

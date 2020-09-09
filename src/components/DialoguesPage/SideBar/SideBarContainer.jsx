@@ -1,6 +1,8 @@
 import React from 'react';
+import { compose } from 'redux';
 import SideBar from './SideBar';
 import { connect } from 'react-redux';
+import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
 
 const mapStateToProps = (state) => {
     return {
@@ -8,6 +10,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-const SideBarContainer = connect(mapStateToProps)(SideBar);
-
-export default SideBarContainer;
+export default compose(
+    connect(mapStateToProps),
+    withAuthRedirect // HOC
+)(SideBar);

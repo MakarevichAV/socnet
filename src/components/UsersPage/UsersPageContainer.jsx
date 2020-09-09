@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-    follow, unfollow,
-    setCurrentPage,
-    toggleFollowingProcess,
-    getUsers
+    follow, unfollow, setCurrentPage,
+    toggleFollowingProcess, getUsers
 } from '../../redux/usersReducer';
 import UserPage from './UserPage';
 import Preloader from '../common/Preloader/Preloader';
@@ -51,9 +49,8 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps,
     {
-        follow, unfollow,
-        setCurrentPage,
+        follow, unfollow, setCurrentPage,
         toggleFollowingProcess,
-        getUsers // thunk
+        getUsers
     })
     (UsersPageContainer);
