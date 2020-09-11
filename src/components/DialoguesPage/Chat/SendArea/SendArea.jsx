@@ -1,23 +1,30 @@
 import React from 'react';
 import s from './SendArea.module.css';
+import { reduxForm, Field } from 'redux-form';
+import { Textarea } from '../../../common/FormsControls/FormsControls';
+import { required } from '../../../utils/validators';
 
 const SendArea = (props) => {
 
-    const onSendMsg = () => {
-        props.sendMsg();
-    }
-
-    const onChangeVal = (e) => {
-        props.changeVal(e.target.value);
+    const addNewMsg = (formData) => {
+        props.sendMsg(formData.newMsgBody);
     }
 
     return (
-        <div className={s.sendArea}>
-            <textarea className={s.txtarea} value={props.val}
-                onChange={onChangeVal} />
-            <button className={s.btn} onClick={onSendMsg}></button>
-        </div>
+        <AddMsgFormRedux onSubmit={addNewMsg} />
     )
 }
+
+const AddMsgForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit} className={s.sendArea}>
+            <Field name="newMsgBody" component="textarea" value={props.val} className={s.txtarea} 
+                validate={[required]} />
+            <button className={s.btn}></button>
+        </form>
+    )
+}
+
+const AddMsgFormRedux = reduxForm({ form: 'dialogueAddMsgForm' })(AddMsgForm);
 
 export default SendArea;

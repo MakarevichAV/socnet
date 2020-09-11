@@ -1,5 +1,4 @@
 const SEND_MSG = 'SEND_MSG';
-const CHANGE_NEW_MSG_VAL = 'CHANGE_NEW_MSG_VAL';
 
 let initialState = {
     dialogues: [
@@ -40,8 +39,7 @@ let initialState = {
             txt: 'Принятое сообщение 2. Бла бла бла. Бла бла бла',
             direction: 'received'
         }
-    ],
-    newMsgVal: ''
+    ]
 }
 
 const dialoguesReducer = (state = initialState, action) => {
@@ -49,25 +47,18 @@ const dialoguesReducer = (state = initialState, action) => {
         case SEND_MSG:
             const newMsg = {
                 id: 7,
-                txt: state.newMsgVal,
+                txt: action.newMsgBody,
                 direction: 'sended'
             };
             return {
                 ...state,
-                msgs: [...state.msgs, newMsg],
-                newMsgVal: ''
+                msgs: [...state.msgs, newMsg]
             };
-        case CHANGE_NEW_MSG_VAL:
-            return {
-                ...state,
-                newMsgVal: action.newMsg
-            }
         default:
             return state;
     }
 }
 
-export const sendMsgAC = () => ({ type: SEND_MSG });
-export const changeNewMsgVal = (newMsg) => ({ type: CHANGE_NEW_MSG_VAL, newMsg: newMsg });
+export const sendMsgAC = (newMsgBody) => ({ type: SEND_MSG, newMsgBody });
 
 export default dialoguesReducer;

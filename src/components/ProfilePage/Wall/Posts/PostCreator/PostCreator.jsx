@@ -1,29 +1,37 @@
 import React from 'react';
 import s from './PostCreator.module.css';
+import { reduxForm, Field } from 'redux-form';
+import { required, maxLengthCreator } from '../../../../utils/validators';
+import { Textarea } from '../../../../common/FormsControls/FormsControls';
 
 const PostCreator = (props) => {
 
-    const onAddPost = () => {
-        props.addPost();
-    }
-
-    const onChangeVal = (e) => {
-        props.changePostVal(e.target.value);
+    const onAddPost = (formData) => {
+        props.addPost(formData.newPostText);
     }
 
     return (
-        <>
-            <div className={s.newPost}>
-                <div className={s.photo}></div>
-                <textarea className={s.textarea} placeholder="Что у Вас нового?"
-                    value={props.val} onChange={onChangeVal} />
-            </div>
-            <button className={`${s.btn} ${s.type1}`} onClick={onAddPost}>
-                Опубликовать
-            </button>
-        </>
+        <AddPostFormRedux onSubmit={onAddPost} />
     )
 
 }
+
+const maxLength = maxLengthCreator(10);
+const PostCreatorForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <div className={s.newPost}>
+                <div className={s.photo}></div>
+                <Field name="newPostText" component={Textarea} className={s.textarea} 
+                    validate={[required, maxLength]} placeholder="Что у Вас нового?" />
+            </div>
+            <button className={`${s.btn} ${s.type1}`}>
+                Опубликовать
+            </button>
+        </form>
+    )
+}
+
+const AddPostFormRedux = reduxForm({ form: 'addPostForm' })(PostCreatorForm);
 
 export default PostCreator;

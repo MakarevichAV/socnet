@@ -18,9 +18,10 @@ const ProfilePage = (props) => {
                 socials={props.profile.contacts}
             />
             <Wall
-                status={props.profile.aboutMe}
+                status={props.status}
                 jobFlag={props.profile.lookingForAJob}
                 jobDescription={props.profile.lookingForAJobDescription}
+                updateStatus={props.updateUserStatus}
             />
         </div>
     )

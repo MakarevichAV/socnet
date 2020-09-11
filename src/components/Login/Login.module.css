@@ -1,0 +1,28 @@
+.loginWindow {
+    max-width: 700px;
+    padding: 30px;
+}
+
+.form {
+    background-color: var(--block);
+    padding: 35px 20px 20px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.input {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+.checkbox {
+    margin-bottom: 15px;
+}
+
+.btn {
+    background-color: var(--color-1);
+    color: white;
+    cursor: pointer;
+}
