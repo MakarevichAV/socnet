@@ -53,10 +53,3 @@ export const authAPI = {
         return instance.delete(`auth/login`);
     }
 }
-
-// export const loginAPI = {
-//     login() {
-//         return instance.post(`login`)
-//     }
-// }
-

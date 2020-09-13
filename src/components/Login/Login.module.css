@@ -26,3 +26,7 @@
     color: white;
     cursor: pointer;
 }
+
+.error {
+    color: var(--color-3);
+}

@@ -8,7 +8,7 @@
     font-size: 22px;
     color: #ffffff;
     background: none;
-    padding: 4px 12px;
+    padding: 4px 4px;
     border-radius: 6px;
     cursor: pointer;
 }
@@ -29,11 +29,11 @@ li:nth-last-child(1) {
     .nav {
         font-size: 22px;
     }
-    .nav button {
+    /* .nav button {
         position: absolute;
         top: 5px;
         right: 30px;
-    }
+    } */
     .nav {
         place-self: flex-end;
         margin: 20px;

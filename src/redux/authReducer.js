@@ -1,4 +1,5 @@
 import { authAPI } from "../api/api";
+import { stopSubmit } from "redux-form";
 
 const SET_USER_DATA = 'SET_USER_DATA';
 
@@ -14,8 +15,7 @@ const authReducer = (state = initialState, action) => {
         case SET_USER_DATA:
             return {
                 ...state,
-                ...action.payload,
-                isAuth: true
+                ...action.payload
             }
         default:
             return state;
@@ -37,6 +37,9 @@ export const login = (email, password, rememberMe) => (dispatch) => {
     authAPI.login(email, password, rememberMe).then(res => {
         if (res.data.resultCode === 0) {
             dispatch(getMyself());
+        } else {
+            const msg = res.data.messages.length > 0 ? res.data.messages : 'Ошибочка вышла';
+            dispatch(stopSubmit('login', {_error: msg}));
         }
     });
 }

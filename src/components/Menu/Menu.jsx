@@ -13,7 +13,7 @@ const Menu = (props) => {
                 <li><NavLink to="/trainer">Тренер</NavLink></li> */}
             <li>
                 {props.isAuth ?
-                    <NavLink to="/login">Выйти</NavLink> :
+                    <button onClick={props.logout}>Выйти</button> :
                     <NavLink to="/login">Войти</NavLink>
                 }
             </li>
