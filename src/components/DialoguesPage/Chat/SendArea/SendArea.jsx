@@ -2,7 +2,7 @@ import React from 'react';
 import s from './SendArea.module.css';
 import { reduxForm, Field } from 'redux-form';
 import { Textarea } from '../../../common/FormsControls/FormsControls';
-import { required } from '../../../utils/validators';
+import { required } from '../../../../utils/validators/validators';
 
 const SendArea = (props) => {
 

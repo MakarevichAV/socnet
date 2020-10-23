@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './PostCreator.module.css';
 import { reduxForm, Field } from 'redux-form';
-import { required, maxLengthCreator } from '../../../../utils/validators';
+import { required, maxLengthCreator } from '../../../../../utils/validators/validators';
 import { Textarea } from '../../../../common/FormsControls/FormsControls';
 
 const PostCreator = (props) => {

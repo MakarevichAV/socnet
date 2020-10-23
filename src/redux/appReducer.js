@@ -18,13 +18,11 @@ const appReducer = (state = initialState, action) => {
     }
 }
 
-export const initializedSuccess = () => ({type: INITIALIZED_SUCCESS});
+export const initializedSuccess = () => ({ type: INITIALIZED_SUCCESS });
 
-export const initializeApp = () => (dispatch) => {
-    dispatch(getMyself())
-        .then(() => {
-            dispatch(initializedSuccess());
-        })
+export const initializeApp = () => async (dispatch) => {
+    await dispatch(getMyself());
+    dispatch(initializedSuccess());
 }
 
 export default appReducer;
