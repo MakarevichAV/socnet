@@ -7,11 +7,23 @@ const UserInfo = (props) => {
     const userPhoto = {
         backgroundImage: `url(${props.photo ? props.photo : defaultPhoto})`
     }
+
+    const onMainPhotoSelected = (e) => {
+        props.savePhoto(e.target.files[0]);
+    }
     
     return (
         <div className={s.info}>
             <div className={s.photo}
-                style={userPhoto}></div>
+                style={userPhoto}>
+                {props.isOwner && 
+                <label>
+                    <div className={s.editPhoto}>
+                        <input type="file" onChange={onMainPhotoSelected} />
+                    </div>
+                </label>
+                }
+            </div>
             <p className={s.name}>{props.name}</p>
             <div className={s.data}>
                 {/* <p className={`${s.item} ${s.underline}`}>

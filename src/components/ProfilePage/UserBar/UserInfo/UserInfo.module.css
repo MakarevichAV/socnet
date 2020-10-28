@@ -12,6 +12,27 @@
     margin: 0 auto;
     margin-bottom: 30px;
     background: url(../../../../user-photo.jpg) no-repeat center center / cover;
+    position: relative;
+}
+
+.editPhoto {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgb(83, 71, 71) url(../../../../assets/images/camera.png) no-repeat center center / 80%;
+    border-radius: 50%;
+    opacity: 0.9;
+    display: none;
+    cursor: pointer;
+}
+
+.photo:hover .editPhoto {
+    display: block;
+}
+.editPhoto input {
+    display: none;
 }
 
 .name {

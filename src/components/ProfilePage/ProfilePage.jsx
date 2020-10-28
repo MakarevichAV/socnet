@@ -14,8 +14,10 @@ const ProfilePage = (props) => {
         <div className={`${s.profilePage} container`}>
             <UserBar
                 photo={props.profile.photos.large}
+                isOwner={props.isOwner}
                 name={props.profile.fullName}
                 socials={props.profile.contacts}
+                savePhoto={props.savePhoto}
             />
             <Wall
                 status={props.status}
