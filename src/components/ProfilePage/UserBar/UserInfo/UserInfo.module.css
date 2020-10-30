@@ -36,11 +36,13 @@
 }
 
 .name {
-    font-size: 26px;
     font-weight: bold;
     color: var(--user-font-color);
     text-align: center;
-    margin-bottom: 30px;
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 24px;
 }
 
 .data {
@@ -112,4 +114,41 @@ input[type="date"] {
 
 .red {
     color: red;
+}
+
+.contacts {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contactIcon {
+    display: inline-block;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    margin: 4px 8px;
+    cursor: pointer;
+}
+
+.unvisible {
+    display: none;
+}
+
+.editVal {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 20px;
+} 
+
+.title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--color-3);
+}
+
+.contacts {
+    margin-bottom: 20px;
 }

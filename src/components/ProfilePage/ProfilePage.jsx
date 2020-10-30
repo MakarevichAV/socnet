@@ -18,6 +18,7 @@ const ProfilePage = (props) => {
                 name={props.profile.fullName}
                 socials={props.profile.contacts}
                 savePhoto={props.savePhoto}
+                contacts={props.profile.contacts}
             />
             <Wall
                 status={props.status}

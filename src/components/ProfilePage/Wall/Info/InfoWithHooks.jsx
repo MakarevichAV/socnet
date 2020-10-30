@@ -6,7 +6,7 @@ const Info = (props) => {
     const [status, setStatus] = useState(props.status);
     useEffect(() => { 
         setStatus(props.status);
-    }, []);
+    }, [props.status]);
     const editModeOn = () => {
         setEditMode(true);
     }
@@ -29,10 +29,10 @@ const Info = (props) => {
             <div className={s.infoBlock}>
                 <p className={s.head}>Работа</p>
                 <p className={s.jobStatus}>
-                    {/* {this.props.jobFlag ? 'Ищу работу' : 'Трудоустроен'} */}
+                    {props.jobFlag ? 'Ищу работу' : 'Трудоустроен'}
                 </p>
                 <p className={s.description}>
-                    {/* {this.props.jobDescription ? this.props.jobDescription : null} */}
+                    {props.jobDescription ? props.jobDescription : null}
                 </p>
             </div>
         </>

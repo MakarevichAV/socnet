@@ -42,3 +42,35 @@ body {
   align-items: stretch;
   padding-bottom: 100px;
 }
+
+a.vk {
+  background: rgb(255, 255, 255) url(./assets/images/contacts/vk.png) no-repeat center center / cover;
+}
+
+a.github {
+  background: rgb(255, 255, 255) url(./assets/images/contacts/gh.png) no-repeat center center / cover;
+}
+
+a.facebook {
+  background: rgb(255, 255, 255) url(./assets/images/contacts/fb.png) no-repeat center center / cover;
+}
+
+a.instagram {
+  background: rgb(255, 255, 255) url(./assets/images/contacts/in.png) no-repeat center center / cover;
+}
+
+a.twitter {
+  background: rgb(255, 255, 255) url(./assets/images/contacts/tw.png) no-repeat center center / cover;
+}
+
+a.website {
+  background: rgb(255, 255, 255) url(./assets/images/contacts/www.png) no-repeat center center / cover;
+}
+
+a.youtube {
+  background: rgb(255, 255, 255) url(./assets/images/contacts/yt.png) no-repeat center center / cover;
+}
+
+a.mainLink {
+  background: orangered;
+}
