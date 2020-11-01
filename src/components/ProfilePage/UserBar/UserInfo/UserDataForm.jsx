@@ -30,6 +30,7 @@ const UserReduxForm = reduxForm({ form: 'edit-user-info' })(Form);
 const UserDataForm = (props) => {
     const onSubmit = (formData) => {
         props.saveProfileBarData(formData);
+        props.editModeOff();
     }
     return (
         <UserReduxForm onSubmit={onSubmit} {...props} />

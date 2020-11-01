@@ -120,10 +120,9 @@ export const saveProfileBarData = (formData) => async (dispatch, getState) => {
         fullName: name,
         contacts: formData
     });
-    debugger
-    // if (response.data.resultCode === 0) {
-    //     // dispatch(saveProfileSuccess(response.data.data.photos));
-    // }
+    if (response.data.resultCode === 0) {
+        dispatch(getUserProfile(userId));
+    }
 } 
 
 
