@@ -5,7 +5,7 @@ import UserData from './UserData';
 import UserDataForm from './UserDataForm';
 
 const UserInfo = (props) => {
-
+    
     const [editMode, setEditMode] = useState(false);
 
     const editModeOn = () => {

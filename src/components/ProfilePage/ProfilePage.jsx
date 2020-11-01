@@ -16,7 +16,6 @@ const ProfilePage = (props) => {
                 photo={props.profile.photos.large}
                 isOwner={props.isOwner}
                 name={props.profile.fullName}
-                socials={props.profile.contacts}
                 savePhoto={props.savePhoto}
                 contacts={props.profile.contacts}
             />
