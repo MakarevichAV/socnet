@@ -15,7 +15,7 @@ const Form = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <Field component={Input} validate={[required]} className={s.name}
-                name="name" placeholder="Имя" type="text" />
+                name="fullName" placeholder="Имя" type="text" />
             <div className={s.contacts}>
                 <h3 className={s.title}>Контакты:</h3>
                 {contactInputs}
@@ -29,8 +29,7 @@ const UserReduxForm = reduxForm({ form: 'edit-user-info' })(Form);
 
 const UserDataForm = (props) => {
     const onSubmit = (formData) => {
-        console.log(formData);
-        // далее здесь можно задиспачить данные из формы
+        props.saveProfileBarData(formData);
     }
     return (
         <UserReduxForm onSubmit={onSubmit} {...props} />
@@ -40,9 +39,10 @@ const UserDataForm = (props) => {
 const mstp = (state) => {
     return {
         initialValues: {
-            name: state.profilePage.profile.fullName,
+            fullName: state.profilePage.profile.fullName,
             ...state.profilePage.profile.contacts
-        }
+        },
+        dataForServer: state.profilePage.profile
     }
 };
 

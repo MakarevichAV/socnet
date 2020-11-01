@@ -17,6 +17,7 @@ const ProfilePage = (props) => {
                 isOwner={props.isOwner}
                 name={props.profile.fullName}
                 savePhoto={props.savePhoto}
+                saveProfileBarData={props.saveProfileBarData}
                 contacts={props.profile.contacts}
             />
             <Wall

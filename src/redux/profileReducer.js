@@ -5,6 +5,7 @@ const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 const DEL_POST = 'DEL_POST';
 const SAVE_PHOTO = 'SAVE_PHOTO';
+const SAVE_PROFILE = 'SAVE_PROFILE';
 
 let initialState = {
     profile: null,
@@ -86,6 +87,7 @@ export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile: p
 export const setStatus = (status) => ({ type: SET_STATUS, status: status });
 export const delPost = (postId) => ({ type: DEL_POST, postId });
 export const savePhotoSuccess = (photos) => ({ type: SAVE_PHOTO, photos });
+// export const saveProfileSuccess = (data) => ({type: SAVE_PROFILE, data});
 
 // Санки 
 export const getUserProfile = (userId) => async (dispatch) => {
@@ -108,6 +110,21 @@ export const savePhoto = (file) => async (dispatch) => {
         dispatch(savePhotoSuccess(response.data.data.photos));
     }
 }
+export const saveProfileBarData = (formData) => async (dispatch, getState) => {
+    const userId = getState().auth.userId;
+    const objForServer = getState().profilePage.profile;
+    const name = formData.fullName;
+    delete formData.fullName;
+    let response = await profileAPI.saveProfile({
+        ...objForServer,
+        fullName: name,
+        contacts: formData
+    });
+    debugger
+    // if (response.data.resultCode === 0) {
+    //     // dispatch(saveProfileSuccess(response.data.data.photos));
+    // }
+} 
 
 
 
