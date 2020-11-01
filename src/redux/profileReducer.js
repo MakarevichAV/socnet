@@ -113,13 +113,13 @@ export const savePhoto = (file) => async (dispatch) => {
 export const saveProfileBarData = (formData) => async (dispatch, getState) => {
     const userId = getState().auth.userId;
     const objForServer = getState().profilePage.profile;
-    const name = formData.fullName;
-    delete formData.fullName;
+    // const name = formData.fullName;
+    // delete formData.fullName;
     let response = await profileAPI.saveProfile({
         ...objForServer,
-        fullName: name,
-        contacts: formData
+        ...formData
     });
+    debugger
     if (response.data.resultCode === 0) {
         dispatch(getUserProfile(userId));
     }

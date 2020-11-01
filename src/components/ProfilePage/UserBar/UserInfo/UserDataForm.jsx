@@ -9,7 +9,7 @@ const Form = (props) => {
     const contactInputs = Object.keys(props.contacts).map(key => {
         return (
             <Field key={key} component={Input} className={s.editVal}
-                name={key} placeholder={key} type="text" value={props.contacts[key] ? props.contacts[key] : ''} />
+                name={'contacts.' + key} placeholder={key} type="text" value={props.contacts[key] ? props.contacts[key] : ''} />
         )
     });
     return (
@@ -41,7 +41,7 @@ const mstp = (state) => {
     return {
         initialValues: {
             fullName: state.profilePage.profile.fullName,
-            ...state.profilePage.profile.contacts
+            contacts: {...state.profilePage.profile.contacts}
         },
         dataForServer: state.profilePage.profile
     }
