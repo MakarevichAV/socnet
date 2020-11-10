@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Route, withRouter } from 'react-router-dom';
+import { Redirect, Route, withRouter } from 'react-router-dom';
 import HeaderContainer from './components/Header/HeaderContainer';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -30,6 +30,7 @@ class App extends React.Component {
         return (
             <div className="App">
                 <HeaderContainer />
+                <Route path="/" render={() => <Redirect to={"/profile"} /> } />
                 <Route path="/profile/:userId?" render={withSuspense(ProfilePageContainer)} />
                 <Route path="/dialogues" render={withSuspense(DialoguesPage)} />
                 <Route path="/users" render={withSuspense(UsersPageContainer)} />

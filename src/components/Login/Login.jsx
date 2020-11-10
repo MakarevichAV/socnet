@@ -6,6 +6,7 @@ import { Input } from '../common/FormsControls/FormsControls';
 import { login } from '../../redux/authReducer';
 import { Redirect } from 'react-router-dom';
 import { required } from '../../utils/validators/validators';
+import Captcha from '../common/Captcha/Captcha';
 
 const LoginForm = (props) => {
     return (
@@ -20,6 +21,7 @@ const LoginForm = (props) => {
                     remember me
                 </label>
             </div>
+            { props.captchaUrl && <Captcha captchaUrl={props.captchaUrl} /> }
             {props.error && <p className={s.error}>{props.error}</p>}
             <button className={`${s.input} ${s.btn}`}>Login</button>
         </form>
@@ -30,20 +32,21 @@ const LoginReduxForm = reduxForm({ form: 'login' })(LoginForm);
 
 const Login = (props) => {
     const onSubmit = (formData) => {
-        props.login(formData.email, formData.password, formData.rememberMe);
+        props.login(formData.email, formData.password, formData.rememberMe, formData.captcha);
     }
     if (props.isAuth) {
         return <Redirect to="/profile" />
     }
     return (
         <div className={`${s.loginWindow} container`}>
-            <LoginReduxForm onSubmit={onSubmit} />
+            <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
         </div>
     )
 }
 
 const mstp = (state) => {
     return {
+        captchaUrl: state.auth.captchaUrl,
         isAuth: state.auth.isAuth
     }
 };
